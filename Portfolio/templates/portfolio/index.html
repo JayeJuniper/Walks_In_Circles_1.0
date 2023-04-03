@@ -1,0 +1,66 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+<!--main content-->
+<div class="section-right">
+    <div class="">
+        <h1>This is Walks_In_Circles</h1>
+        <div>
+            <span class="type-meta"><i class="user">Jaye Juniper Grenz</i></span>
+            <span class="type-meta"><i class="tags"> Coder, Photographer, Artist</i></span>
+            <p>{{ portfolio.introduction }}</p>
+        </div>
+    </div>
+    <div class="portfolio">
+        <ul>
+            <li>
+                <div class="polaroid_body">
+                    <a href="https://www.patreon.com/CircleWalks" target=”_blank”>
+                        <img src="../../../static/portfolio/images/profile_pic_02.jpg" alt="Patreon"></img>
+                    </a>
+                    <ul>
+                        <li><a href="https://www.patreon.com/CircleWalks" target=”_blank” class="social patreon" >Patreon</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="polaroid_body">
+                    <a href="https://www.youtube.com/channel/UC-TCCb-0GYvzOky8-wbCAZQ" target=”_blank”>
+                        <img src="../../../static/portfolio/images/profile_pic_01.jpg" alt="youtube"></img>
+                    </a>
+                    <ul>
+                        <li><a href="https://www.youtube.com/channel/UC-TCCb-0GYvzOky8-wbCAZQ" target=”_blank” class="social youtube">Youtube</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="section-block1">
+        <h1>About</h1>
+        <p>{{ portfolio.about }}</p>
+        <h1>Sponsors & Discounts</h1>
+        <ul>
+            <li>
+                <div class="polaroid_body">
+                    <a href="https://getcaseborne.com?sca_ref=2105912.XHKvplM7NA" target=”_blank”>
+                        <img src="../../../static/portfolio/images/phonecase_pic.jpg" alt="casebourne"></img>
+                    </a>
+                    <P>Save 20% Use code: "InCircles"</P>
+                </div>
+            </li>
+            <li>
+                <div class="polaroid_body">
+                    <a href="https://linktr.ee/glassfire?fbclid=PAAaYWbJABe7Dgai3izVtHoKEB6THI6LgcPL5vQAEhKHc0mAR5gGgPmcU_jfU" target=”_blank”>
+                        <img src="../../../static/portfolio/images/dice_pic.jpeg" alt="glassfire"></img>
+                    </a>
+                    <p>Save 10% Use code: "InCircles10"</p>
+                </div>
+            </li>
+    </div>    
+    {% if user.is_authenticated %}
+    <a href="{% url 'portfolio_edit' pk=portfolio.id %}" >edit</a>
+{% endif %}
+</div>
+<!--/main content-->
+
+{% endblock %}

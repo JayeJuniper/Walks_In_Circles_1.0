@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+<div class="main-content">
+    <div class="section-right">
+        <body>
+            <h1>Vehicle Specs</h1>
+            <div>
+                <ul>
+                    {% for jeep in jeeps %}
+                        <div class="polaroid">
+                            <li>
+                                <a href="{% url 'jeep_detail' pk=jeep.pk %}">
+                                    <img src="../../../media/{{ jeep.image }}">
+                                </a>
+                                <p><a href="{% url 'jeep_detail' pk=jeep.pk %}">{{ jeep.jeep_name }}</a></p>
+                            </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+        </body>
+    </div>
+</div>
+{% if user.is_authenticated %}
+<a href="{% url 'jeep_new' %}">Submit New Build</a>
+{% endif %}
+{% endblock %}

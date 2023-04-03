@@ -1,0 +1,38 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+<!--main content-->
+<div class="main-content">
+    <div class="section-right">
+        <!--article_posts-->
+        <div class="section-block1">
+            <h1>History:</h1>
+            <p>{{ jeep.history }}</p>
+            <h1>Specs:</h1>
+            <p>{{ jeep.specs}}</p>
+            <h1>Photos:</h1>
+            {% for photo in photos %}
+                <div class="polaroid">
+                    <li>
+                        <a href="../../../media/{{ photo.image }}">
+                            <img src="../../../media/{{ photo.image }}">
+                        </a>
+                        <p>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'photo_edit' pk=photo.id %}">Edit</a> /
+                                <a href="{% url 'photo_delete' pk=photo.id %}">Delete</a>
+                            {% endif %}
+                        </p>
+                    </li>
+                </div>
+            {% endfor %}
+            {% if user.is_authenticated %}
+                <a href="{% url 'jeep_edit' pk=jeep.id %}">Edit</a> /
+                <a href="{% url 'jeep_delete' pk=jeep.id %}">Delete</a>
+            {% endif %}
+        </div>
+        <!--article_posts-->
+    </div>
+    <!--/main content-->
+</div>
+{% endblock %}

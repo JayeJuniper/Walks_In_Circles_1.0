@@ -1,0 +1,47 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+<div class="main-content">
+    <div class="section-right">
+        <body>
+            <h1>Expeditions</h1>
+            <ul>
+                {% for expedition in expeditions %}
+                    <div class="polaroid">
+                        <li>
+                            <a href="{% url 'expedition_detail' pk=expedition.pk %}">
+                                <img src="../../../media/{{ expedition.expedition_image }}">
+                            </a>
+                            <p>
+                                <a href="{% url 'expedition_detail' pk=expedition.pk %}">{{ expedition.expedition_name }}</a>
+                            </p>
+                        </li>
+                    </div>
+                {% endfor %}
+            </ul>
+        </body>
+    </div>
+</div>
+<!--left-sidebar-->
+<div class="section-left">
+    <div class="section-block0">
+        <div class="polaroid">
+            <a href="{% url 'index' %}">
+                <img src="../../../static/portfolio/images/vehicle_pic.jpg" alt="Picture of Jaye Juniper Grenz"></img>
+            </a>
+            <!--social links-->
+            <ul>
+                <li><a href="https://www.patreon.com/CircleWalks" target=”_blank” class="social patreon" >Patreon</a></li> <!-- -->
+                <li><a href="https://www.instagram.com/walks_in_circles/" target=”_blank” class="social insta">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/jonathan-grenz-426746132" target=”_blank” class="social facebook">Facebook</a></li>
+                <li><a href="https://www.youtube.com/channel/UC-TCCb-0GYvzOky8-wbCAZQ" target=”_blank” class="social youtube">Youtube</a></li>
+            </ul>
+            <!--/social links-->
+        </div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'expedition_new' %}">New Expedition</a>
+        {% endif %}
+    </div>
+</div>
+<!--/left-sidebar-->
+{% endblock %}

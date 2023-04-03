@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Walks_In_Circles</title>
+    <meta name="description" content="This site is a portfolio and gallery for Walks_In_Circles.">
+    <meta name="author" content="Jaye Juniper Grenz">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'portfolio/css/global.css' %}">
+</head>
+<body>
+    <div class="main-nav bg-">
+        <ul class="nav">
+            <!--<li class="name"><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'jeep' %}">Vehicles</a></li>
+            <li><a href="{% url 'expeditions' %}">Expeditions</a></li>
+            <li><a href="{% url 'article_list' %}">Articles</a></li>-->
+        </ul>
+    </div>
+    <header>
+    </header>
+    {% block content %}{% endblock %}
+    <!--left-sidebar-->
+    <div class="section-left">
+        <div class="section-block0">
+            <div class="polaroid_index">
+                <a href="{% url 'index' %}">
+                    <img src="../../../static/portfolio/images/vehicle_pic.jpg" alt="Picture of Jaye Juniper Grenz"></img>
+                </a>
+                <!--social links-->
+                <ul>
+                    <li><a href="https://www.patreon.com/CircleWalks" target=”_blank” class="social patreon" >Patreon</a></li> <!-- -->
+                    <li><a href="https://www.instagram.com/walks_in_circles/" target=”_blank” class="social insta">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100091344376150" target=”_blank” class="social facebook">Facebook</a></li>
+                    <li><a href="https://www.youtube.com/channel/UC-TCCb-0GYvzOky8-wbCAZQ" target=”_blank” class="social youtube">Youtube</a></li>
+                </ul>
+                <!--/social links-->
+            </div>
+        </div>
+    </div>
+    <!--/left-sidebar-->
+    <footer>
+        <!--
+        <ul>
+            <li><a href="https://www.patreon.com/CircleWalks" target=”_blank” class="social patreon" >Patreon</a></li>
+            <li><a href="https://www.instagram.com/walks_in_circles/" target=”_blank” class="social insta">Instagram</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100091344376150" target=”_blank” class="social facebook">Facebook</a></li>
+            <li><a href="https://www.youtube.com/channel/UC-TCCb-0GYvzOky8-wbCAZQ" target=”_blank” class="social youtube">Youtube</a></li>
+        </ul>-->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+<!--main content-->
+<div class="main-content">
+    <div class="section-right">
+        <div class="portfolio">
+            <body> 
+                <!--article_posts-->
+                <body>
+                    <div class="update-post">
+                        <h1>{{ expedition.expedition_name }}</h1>
+                        <div class="update-post">
+                            <p>{{ expedition.description }}</p>
+                        </div>
+                        <div role="tabpanel" class="update-post">
+                            <h1>Photos:</h1>
+                        </div>
+                        {% for photo in photos %}
+                            <div class="polaroid">
+                                <li>
+                                    <a href="../../../media/{{ photo.image }}" target=”_blank”>
+                                        <img src="../../../media/{{ photo.image }}">
+                                    </a>
+                                    <p>
+                                        {% if user.is_authenticated %}
+                                            <a href="{% url 'photo_edit' pk=photo.id %}">Edit</a> /
+                                            <a href="{% url 'photo_delete' pk=photo.id %}">Delete</a>
+                                        {% endif %}
+                                    </p>
+                                </li>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </body>
+                <!--/expedition-->
+            </body>
+        </div>
+    </div>
+    <!--/main content-->
+
+</div>
+{% endblock %}
